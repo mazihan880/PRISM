@@ -1,6 +1,6 @@
 # Training and Inference Guide for PRISM
 
-This guide demonstrates how to train the model and perform inference using the provided scripts. And the **[Supplementary Material](./supplementar_material.pdf)** is provided in the repository.
+This guide demonstrates how to train the model and perform inference using the provided scripts. And the **[Supplementary Material](./supplementary_material.pdf)** is provided in the repository.
 
 ---
 
