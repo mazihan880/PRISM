@@ -14,10 +14,7 @@ from component.guided_diffusion import Diffusion, ModelWithEmbeddingIB
 from train import Trainer
 from torch.utils import data
 
-# 设置可见的GPU设备
 
-
-# Argument parsing
 parser = argparse.ArgumentParser()
 parser.add_argument('--args_file', type=str, default='args.json', help='Path to the args JSON file')
 parser.add_argument('--param_grid_file', type=str, default='param_grid.json', help='Path to the parameter grid JSON file')
@@ -65,14 +62,14 @@ parser.add_argument('--diff_cof', type=float, help='Diffu cof')
 
 args = parser.parse_args()
 
-# 创建日志文件夹
+
 def create_log_dir(log_file, dataset):
     if not os.path.exists(log_file):
         os.makedirs(log_file)
     if not os.path.exists(log_file + dataset):
         os.makedirs(log_file + dataset)
 
-# 日志配置
+
 def setup_logging(log_file, dataset):
     logging.basicConfig(
         level=logging.INFO, 
@@ -84,7 +81,7 @@ def setup_logging(log_file, dataset):
     logger = logging.getLogger(__name__)
     return logger
 
-# 设置随机种子确保结果可复现
+
 def set_seed(seed):
     random.seed(seed)
     np.random.seed(seed)
@@ -96,7 +93,7 @@ def set_seed(seed):
 
 def run_experiment(args, logger):
 
-    # 加载数据集
+
     tr_path = f'../../dataset/data/{args.dataset}/user_train.json'
     val_path = f'../../dataset/data/{args.dataset}/user_val.json'
     test_path = f'../../dataset/data/{args.dataset}/user_test.json'
